@@ -1,4 +1,4 @@
-import react, { useState } from "react"
+import React, { useState } from "react"
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
 
   function handleOnChange(e) {
     setFormData({...formData, [e.target.name]: e.target.value})
+    // console.log({...formData, [e.target.name]: e.target.value})
   }
 
   function showPassword() {
@@ -20,12 +21,31 @@ function App() {
     }
   }
 
+  function handleOnSubmit(e) {
+    e.preventDefault()
+    const url ="https://frebi.willandskill.eu/api-token-auth/"
+    const payload = {
+      email: formData.email,
+      password: formData.password
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+  }
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-12">
           <h1 className="ml-2">Welcome!</h1>
-          <form>
+          <form onSubmit={handleOnSubmit}>
             <label className="col-md-2">Email:</label>
             <input name="email" onChange={handleOnChange} value={formData.email} className="col-md-5" />
             <p className="col-md-5" />
