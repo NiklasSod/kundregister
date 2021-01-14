@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Switch, Route } from "react-router-dom"
+import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
@@ -21,7 +22,10 @@ function App() {
       <div className="row">
         <div className="col-md-12">
           <Switch>
-            <Route path="/login" >
+            <Route path="/home">
+              <HomePage/>
+            </Route>
+            <Route path="/">
               <LoginPage/>
             </Route>
           </Switch>

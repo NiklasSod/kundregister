@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
 
 export default function LoginPage() {
+
+    const history = useHistory()
 
     const [formData, setFormData] = useState({
         email: "Niklas.Soderberg@yh.nackademin.se",
@@ -26,11 +29,12 @@ export default function LoginPage() {
                 "Content-Type": "application/json"
             }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                localStorage.setItem("superSecretLogInToken", data.token)
-            })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            localStorage.setItem("superSecretLogInToken", data.token)
+            history.push("/home")
+        })
     }
 
     function showPassword() {
