@@ -14,7 +14,7 @@ export default function HomePage() {
         <div>
             <h2>Logged in... succes!</h2>
             <div>
-                <button className="col-md-3 col-3 btn btn-primary">Create User</button>
+                <Link to="/create" className="col-md-3 col-3 btn btn-primary">Create User</Link>
                 <button className="ml-3 col-md-3 col-3 btn btn-primary">View Users</button>
             </div>
             <div className="mt-3">

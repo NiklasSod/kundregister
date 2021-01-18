@@ -1,5 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
+import CreatePage from "./pages/CreatePage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 
@@ -25,6 +26,11 @@ function App() {
             <Route path="/home/">
               <HomePage/>
             </Route>
+
+            <Route path="/create">
+              <CreatePage/>
+            </Route>
+            
             <Route path="/">
               <LoginPage/>
             </Route>
