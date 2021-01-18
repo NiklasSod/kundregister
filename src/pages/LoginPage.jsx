@@ -31,7 +31,7 @@ export default function LoginPage() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             localStorage.setItem("superSecretLogInToken", data.token)
             history.push("/home")
         })
