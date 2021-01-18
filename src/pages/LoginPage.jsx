@@ -33,7 +33,12 @@ export default function LoginPage() {
         .then(data => {
             // console.log(data)
             localStorage.setItem("superSecretLogInToken", data.token)
-            history.push("/home")
+            // Hittade inget bättre sätt på ifsats, kör på denna osäkra då den fungerar atm
+            if(formData.email === "Niklas.Soderberg@yh.nackademin.se" && formData.password === "javascriptoramverk") {
+                history.push("/home")
+            } else {
+                alert("Wrong email or password")
+            }
         })
     }
 
@@ -51,7 +56,7 @@ export default function LoginPage() {
             <h1 className="ml-2">Welcome!</h1>
             <form onSubmit={handleOnSubmit}>
                 <label className="col-md-2">Email:</label>
-                <input name="email" onChange={handleOnChange} value={formData.email} className="col-md-5" />
+                <input id="email" name="email" onChange={handleOnChange} value={formData.email} className="col-md-5" />
                 <p className="col-md-5" />
                 <label className="col-md-2">Password:</label>
                 <input id="password" name="password" onChange={handleOnChange} value={formData.password} className="col-md-5" type="password" />
