@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
 
 export default function CreatePage() {
 
     const [formData, setFormData] = useState({})
+    const history = useHistory()
 
     function renderInput(name, label, type) {
         return (
@@ -30,7 +32,10 @@ export default function CreatePage() {
         })
         .then( res => res.json())
         // add data to useContext
-        .then( data => console.log(data))
+        .then( data => {
+            console.log(data)
+            history.push("/home")
+        })
     }
 
     return (
