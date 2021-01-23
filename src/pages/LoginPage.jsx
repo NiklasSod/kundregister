@@ -36,6 +36,7 @@ export default function LoginPage() {
             // Hittade inget bättre sätt på ifsats, kör på denna osäkra då den fungerar atm
             if(formData.email === "Niklas.Soderberg@yh.nackademin.se" && formData.password === "javascriptoramverk") {
                 history.push("/home")
+                console.log(data.token)
             } else {
                 alert("Wrong email or password")
             }
