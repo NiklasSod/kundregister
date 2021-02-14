@@ -54,7 +54,7 @@ export default function LoginPage() {
 
     return (
         <div>
-            <h1 className="ml-2">Welcome!</h1>
+            <h1 className="ml-2 mt-2">Welcome!</h1>
             <form onSubmit={handleOnSubmit}>
                 <label className="col-md-2">Email:</label>
                 <input id="email" name="email" onChange={handleOnChange} value={formData.email} className="col-md-5" />
@@ -62,8 +62,10 @@ export default function LoginPage() {
                 <label className="col-md-2">Password:</label>
                 <input id="password" name="password" onChange={handleOnChange} value={formData.password} className="col-md-5" type="password" />
                 <p className="col-md-5" />
-                <input type="checkbox" onClick={showPassword} />
-                <p>Show Password</p>
+                <label>
+                    <input className="mr-2" type="checkbox" onClick={showPassword} />Show Password
+                </label>
+                <br/>
                 <button className="col-md-2 btn btn-primary" type="submit">
                     Log In
                 </button>

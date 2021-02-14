@@ -10,6 +10,19 @@ export default function HomePage() {
         history.push("/")
     }
 
+    function currentUserInfo(e) {
+        const url = "https://frebi.willandskill.eu/api/v1/me"
+        const token = localStorage.getItem("superSecretLogInToken")
+        fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
+
     return (
         <div>
             <h2>Logged in... succes!</h2>
@@ -24,6 +37,9 @@ export default function HomePage() {
             </div>
             <br/>
             <Link onClick={deleteToken} to="/" className="col-md-5 col-5 btn btn-dark">Log Out</Link>
+            <button onClick={currentUserInfo} className="ml-3 col-md-5 col-5 btn btn-info">
+                Console log logged in user info
+            </button>
         </div>
     )
 }
