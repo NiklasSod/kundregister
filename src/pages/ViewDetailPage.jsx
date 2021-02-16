@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom"
 
 export default function ViewDetailPage(props) {
 
     const customerId = props.match.params.id
 
     const [viewDetail, setViewDetail] = useState({}) // obj, can be seen on chrome - network - preview
+
+    const history = useHistory()
 
     useEffect( () => {
         getViewDetail()
@@ -25,7 +27,18 @@ export default function ViewDetailPage(props) {
         .then(data => setViewDetail(data))
     }
 
-    console.log(viewDetail)
+    function deleteUser() {
+        const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
+        const token = localStorage.getItem("superSecretLogInToken")
+        fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then( () => history.push("/view") )
+    }
 
     return (
         <div className="">
@@ -37,6 +50,7 @@ export default function ViewDetailPage(props) {
             <p>Website: <a target="_blank" href={viewDetail.website}>{viewDetail.website}</a></p>
             <p>Email: <a href={"mailto:" + viewDetail.email}>{viewDetail.email}</a></p>
             <p>Phone Number: {viewDetail.phoneNumber}</p>
+            <button className="btn btn-danger" onClick={deleteUser}>Delete User</button>
         </div>
     )
 }
