@@ -1,3 +1,5 @@
+// not in use
+
 class Auth {
     constructor() {
         this.authenticated = false;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { HeadingStyled } from '../components/HeadingStyled'
 
 export default function HomePage() {
     const history = useHistory()
@@ -25,20 +26,18 @@ export default function HomePage() {
 
     return (
         <div>
-            <h2>Logged in... succes!</h2>
+            <HeadingStyled className="ml-4">Welcome</HeadingStyled>
             <div className="mt-3">
                 <Link to="/create" className="ml-3 col-md-5 col-5 btn btn-success">Create Customer</Link>
                 <Link to="/view" className="ml-3 col-md-5 col-5 btn btn-primary">View Customer</Link>
             </div>
             <br/>
             <div>
-                <Link to="/update" className="ml-3 col-md-5 col-5 btn btn-warning">Update Customer</Link>
                 <button onClick={currentUserInfo} className="ml-3 col-md-5 col-5 btn btn-info">
                     Console log current user info
                 </button>
+                <Link onClick={deleteToken} to="/" className="ml-3 col-md-5 col-5 btn btn-dark">Log Out</Link>
             </div>
-            <br/>
-            <Link onClick={deleteToken} to="/" className="ml-3 col-md-5 col-5 btn btn-dark">Log Out</Link>
         </div>
     )
 }

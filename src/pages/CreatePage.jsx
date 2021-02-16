@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
+import { HeadingStyled } from '../components/HeadingStyled'
 
 export default function CreatePage() {
 
@@ -40,7 +41,7 @@ export default function CreatePage() {
 
     return (
         <div>
-            <h1 className="mb-3">Create Customer</h1>
+            <HeadingStyled className="mb-3">Create Customer</HeadingStyled>
             <form onSubmit={handleOnSubmit}>
                 {renderInput("name", "Customer Name")}
                 {renderInput("email", "Customer Email", "email")}
@@ -52,6 +53,7 @@ export default function CreatePage() {
                 {renderInput("website", "Website", "url")}
                 <button type="submit" className="btn btn-primary">Create Customer</button>
             </form>
+            <br/>
             {/* {JSON.stringify(formData)} */}
         </div>
     )

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
+import { HeadingStyled } from '../components/HeadingStyled'
 
 export default function ViewDetailPage(props) {
 
@@ -42,7 +43,8 @@ export default function ViewDetailPage(props) {
 
     return (
         <div className="">
-            <h3>Customer: {viewDetail.name} - Details</h3>
+            <HeadingStyled>Customer: </HeadingStyled> 
+            <h3>{viewDetail.name}</h3>
             <p>Organisation Number: {viewDetail.organisationNr}</p>
             <p>Vat Number: {viewDetail.vatNr}</p>
             <p>Reference: {viewDetail.reference}</p>

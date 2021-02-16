@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CustomerInfo from '../components/CustomerInfo'
+import { HeadingStyled } from '../components/HeadingStyled'
 
 export default function ViewPage() {
 
@@ -26,7 +27,7 @@ export default function ViewPage() {
 
     return (
         <div>
-            <h2 className="mb-4">View Customers!</h2>
+            <HeadingStyled className="mb-4">View Customers!</HeadingStyled>
             {customerList.map(item => {
                 return (
                     <div>

@@ -54,7 +54,8 @@ export default function LoginPage() {
 
     return (
         <div>
-            <h1 className="ml-2 mt-2">Welcome!</h1>
+            <h1 className="ml-2 mt-2">Please log in to handle customers!</h1>
+            <br/>
             <form onSubmit={handleOnSubmit}>
                 <label className="col-md-2">Email:</label>
                 <input id="email" name="email" onChange={handleOnChange} value={formData.email} className="col-md-5" />
