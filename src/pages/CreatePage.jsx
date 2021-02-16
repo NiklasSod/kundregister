@@ -34,7 +34,7 @@ export default function CreatePage() {
         // add data to useContext
         .then( data => {
             console.log(data)
-            history.push("/home")
+            history.push("/view")
         })
     }
 

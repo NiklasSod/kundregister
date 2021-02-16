@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CustomerInfo from '../components/CustomerInfo'
 
 export default function ViewPage() {
 
@@ -13,6 +14,7 @@ export default function ViewPage() {
         const url = "https://frebi.willandskill.eu/api/v1/customers" // s?
         const token = localStorage.getItem("superSecretLogInToken")
         fetch(url, {
+            // get is default
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
@@ -28,7 +30,7 @@ export default function ViewPage() {
             {customerList.map(item => {
                 return (
                     <div>
-                        <p className="btn btn-info" key={item.id}>{item.name}</p>
+                        <CustomerInfo key={item.id} customerData={item} />
                         <br/>
                     </div>
                 )

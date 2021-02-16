@@ -20,26 +20,25 @@ export default function HomePage() {
             }
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log(`Email: ${data.email}, First name: ${data.firstName}, Last name ${data.lastName}`))
     }
 
     return (
         <div>
             <h2>Logged in... succes!</h2>
-            <div>
-                <Link to="/create" className="col-md-5 col-5 btn btn-success">Create Customer</Link>
+            <div className="mt-3">
+                <Link to="/create" className="ml-3 col-md-5 col-5 btn btn-success">Create Customer</Link>
                 <Link to="/view" className="ml-3 col-md-5 col-5 btn btn-primary">View Customer</Link>
             </div>
             <br/>
             <div>
-                <Link to="/delete" className="col-md-5 col-5 btn btn-danger">Delete Customer</Link>
-                <Link to="/update" className="ml-3 col-md-5 col-5 btn btn-info">Update Customer</Link>
+                <Link to="/update" className="ml-3 col-md-5 col-5 btn btn-warning">Update Customer</Link>
+                <button onClick={currentUserInfo} className="ml-3 col-md-5 col-5 btn btn-info">
+                    Console log current user info
+                </button>
             </div>
             <br/>
-            <Link onClick={deleteToken} to="/" className="col-md-5 col-5 btn btn-dark">Log Out</Link>
-            <button onClick={currentUserInfo} className="ml-3 col-md-5 col-5 btn btn-info">
-                Console log logged in user info
-            </button>
+            <Link onClick={deleteToken} to="/" className="ml-3 col-md-5 col-5 btn btn-dark">Log Out</Link>
         </div>
     )
 }
